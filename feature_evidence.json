@@ -1,0 +1,111 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-personal-profile-page-that-includes-a-profile-photo-placeholder-display-name-bio-tagline-and-social-handle-fields-styled-as-a-personal-brand-landing-page-for-amazon-product-promotion",
+      "featureTitle": "Create a personal profile page that includes a profile photo placeholder, display name, bio/tagline, and social handle fields — styled as a personal brand landing page for Amazon product promotion.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/EditProfileModal.tsx",
+        "frontend/src/components/ProfileHero.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-amazon-product-showcase-section-where-the-user-can-add-edit-and-remove-product-listings-each-listing-must-include-product-title-description-thumbnail-image-url-amazon-affiliate-product-url-and-an-optional-price-display",
+      "featureTitle": "Create an Amazon product showcase section where the user can add, edit, and remove product listings. Each listing must include: product title, description, thumbnail image URL, Amazon affiliate product URL, and an optional price display.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AddProductModal.tsx",
+        "frontend/src/components/EditProductModal.tsx",
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/ProductGrid.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-internet-identity-authentication-so-only-the-profile-owner-can-edit-their-profile-and-manage-their-product-listings-unauthenticated-visitors-can-view-the-profile-and-products-but-cannot-make-changes",
+      "featureTitle": "Implement Internet Identity authentication so only the profile owner can edit their profile and manage their product listings. Unauthenticated visitors can view the profile and products but cannot make changes.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/hooks/useAuth.ts"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-bold-modern-e-commerce-influencer-visual-theme-warm-amber-and-charcoal-tones-clean-card-based-product-grid-layout-strong-typography-for-the-profile-hero-section-and-subtle-hover-animations-on-product-cards-enforce-this-style-consistently-across-all-pages-and-components",
+      "featureTitle": "Apply a bold, modern e-commerce influencer visual theme: warm amber and charcoal tones, clean card-based product grid layout, strong typography for the profile hero section, and subtle hover animations on product cards. Enforce this style consistently across all pages and components.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-the-generated-branding-images-profile-hero-banner-and-product-placeholder-as-static-assets-from-frontend-public-assets-generated",
+      "featureTitle": "Render the generated branding images (profile hero banner and product placeholder) as static assets from frontend/public/assets/generated.",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/ProfileHero.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "kind": "build_request",
+  "title": "Personal Profile & Amazon Product Advertising App",
+  "projectName": "My Amazon Profile",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a personal profile page that includes a profile photo placeholder, display name, bio/tagline, and social handle fields — styled as a personal brand landing page for Amazon product promotion.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I need to use my profile for advertising for Amazon product's"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile page displays a circular avatar placeholder, name, bio, and optional tagline",
+        "Profile data is persisted in the backend and editable by the owner",
+        "Page is publicly viewable and renders cleanly as a personal brand landing page"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create an Amazon product showcase section where the user can add, edit, and remove product listings. Each listing must include: product title, description, thumbnail image URL, Amazon affiliate product URL, and an optional price display.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I need to use my profile for advertising for Amazon product's"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can add a product with title, description, image URL, Amazon link, and optional price",
+        "Products are stored in the backend and associated with the user profile",
+        "Each product card displays a thumbnail, title, price (if set), short description, and a prominent 'View on Amazon' button linking to the affiliate URL",
+        "User can edit or delete any of their product listings"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement Internet Identity authentication so only the profile owner can edit their profile and manage their product listings. Unauthenticated visitors can view the profile and products but cannot make changes.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I need to use my profile for advertising for Amazon product's"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Login/logout button is visible in the header",
+        "Edit profile and add/edit/delete product actions are only available when authenticated",
+        "Unauthenticated users see a fully rendered read-only profile and product showcase"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a bold, modern e-commerce influencer visual theme: warm amber and charcoal tones, clean card-based product grid layout, strong typography for the profile hero section, and subtle hover animations on product cards. Enforce this style consistently across all pages and components.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I need to use my profile for advertising for Amazon product's"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Warm amber accent color is used for CTAs and highlights throughout",
+        "Charcoal/dark background with light text is used for the hero profile section",
+        "Product listings are displayed in a responsive grid of cards",
+        "Product cards have a subtle scale or shadow hover animation",
+        "Typography is bold and modern, consistent across headings and body text"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Render the generated branding images (profile hero banner and product placeholder) as static assets from frontend/public/assets/generated.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "I need to use my profile for advertising for Amazon product's"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Hero banner image is loaded from frontend/public/assets/generated/hero-banner.png",
+        "Default product placeholder image is loaded from frontend/public/assets/generated/product-placeholder.png"
+      ]
+    }
+  ],
+  "constraints": [
+    "All affiliate and product links must open in a new browser tab",
+    "No external payment integrations — product links go directly to Amazon URLs provided by the user",
+    "Authentication must use Internet Identity only"
+  ],
+  "nonGoals": [
+    "Automatic Amazon product scraping or API integration with Amazon",
+    "Affiliate commission tracking or analytics",
+    "Multi-user storefronts — this is a single-user personal profile",
+    "Real-time features or chat"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Wide hero banner with warm amber gradient, subtle bokeh lights, and abstract shopping/lifestyle background elements (hero-banner.dim_1200x400.png)",
+      "Neutral soft-tone product card placeholder illustration with a simple gift box and sparkle icons (product-placeholder.dim_400x400.png)"
+    ],
+    "edits": []
+  }
+}

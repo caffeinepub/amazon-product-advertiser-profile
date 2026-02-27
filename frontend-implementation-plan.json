@@ -1,0 +1,154 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Personal Profile & Amazon Product Advertising App - Frontend",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a personal profile page with avatar, name, bio, tagline, and social handle — styled as a personal brand landing page",
+      "acceptanceCriteria": [
+        "Profile page displays a circular avatar placeholder, name, bio, and optional tagline",
+        "Profile data is persisted in the backend and editable by the owner",
+        "Page is publicly viewable and renders cleanly as a personal brand landing page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create a hook that wraps getCallerUserProfile() and saveCallerUserProfile() backend methods. Use the authorization component to support authentication-aware profile fetching and editing. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileHero.tsx",
+          "operation": "create",
+          "description": "Create a hero section component that displays the profile photo (circular avatar), display name, bio, tagline, and social handle. Use the generated hero banner image from frontend/public/assets/generated/hero-banner.dim_1200x400.png as the background. Include an edit button when the user is authenticated and viewing their own profile."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create a modal component for first-time profile setup that prompts authenticated users to enter their display name, bio, tagline, social handle, and profile photo URL. Use the authorization component's profile setup pattern to prevent modal flash. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/EditProfileModal.tsx",
+          "operation": "create",
+          "description": "Create a modal component that allows authenticated users to edit their profile fields (display name, bio, tagline, social handle, profile photo URL). Save changes using saveCallerUserProfile()."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProfileHero, ProfileSetupModal, and EditProfileModal components into the main app. Render ProfileHero as the landing page hero section. Show ProfileSetupModal when an authenticated user has no profile. Use the authorization component to control when edit actions are available. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create an Amazon product showcase section with add/edit/remove functionality for product listings including title, description, thumbnail, Amazon URL, and optional price",
+      "acceptanceCriteria": [
+        "User can add a product with title, description, image URL, Amazon link, and optional price",
+        "Products are stored in the backend and associated with the user profile",
+        "Each product card displays a thumbnail, title, price (if set), short description, and a prominent 'View on Amazon' button linking to the affiliate URL",
+        "User can edit or delete any of their product listings"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useProducts.ts",
+          "operation": "create",
+          "description": "Create a hook that wraps getProducts(), addProduct(), updateProduct(), and removeProduct() backend methods. Use React Query for caching and optimistic updates. Use the authorization component to ensure only authenticated users can modify products. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create a product card component that displays thumbnail (with fallback to frontend/public/assets/generated/product-placeholder.dim_400x400.png), title, optional price, short description, and a 'View on Amazon' button. Include edit and delete action buttons visible only to authenticated owners. All Amazon links must open in a new tab."
+        },
+        {
+          "path": "frontend/src/components/ProductGrid.tsx",
+          "operation": "create",
+          "description": "Create a responsive grid layout component that renders ProductCard components. Display an add product button for authenticated users."
+        },
+        {
+          "path": "frontend/src/components/AddProductModal.tsx",
+          "operation": "create",
+          "description": "Create a modal component with a form for adding new products. Include fields for title, description, thumbnail URL, Amazon affiliate URL, and optional price. Use the authorization component to ensure only authenticated users can access this modal. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/EditProductModal.tsx",
+          "operation": "create",
+          "description": "Create a modal component for editing existing products. Pre-populate form fields with current product data. Use the authorization component to ensure only authenticated users can edit products. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProductGrid, AddProductModal, and EditProductModal into the main app below the ProfileHero section. Ensure unauthenticated visitors can view the product showcase but cannot access add/edit/delete actions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement Internet Identity authentication with owner-only edit capabilities and public read-only access for visitors",
+      "acceptanceCriteria": [
+        "Login/logout button is visible in the header",
+        "Edit profile and add/edit/delete product actions are only available when authenticated",
+        "Unauthenticated users see a fully rendered read-only profile and product showcase"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create a header component with the app title and a login/logout button. Use the authorization component's LoginButton pattern to handle authentication state. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the Header component at the top of the app. Use the authorization component to control visibility of edit actions throughout the UI based on authentication state. On logout, clear all cached application data including user profile using queryClient.clear(). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create a convenience hook that wraps useInternetIdentity and provides helper functions for checking authentication state. Use the authorization component to manage authentication flow and identity checks. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a bold, modern e-commerce influencer visual theme with warm amber and charcoal tones, card-based grid layout, strong typography, and hover animations",
+      "acceptanceCriteria": [
+        "Warm amber accent color is used for CTAs and highlights throughout",
+        "Charcoal/dark background with light text is used for the hero profile section",
+        "Product listings are displayed in a responsive grid of cards",
+        "Product cards have a subtle scale or shadow hover animation",
+        "Typography is bold and modern, consistent across headings and body text"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add CSS custom properties for warm amber accent color (#F59E0B or similar) and charcoal background (#1F2937 or similar). Define bold, modern typography styles for headings and body text. Add utility classes for hover animations (scale/shadow effects)."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend the Tailwind theme with custom amber and charcoal colors. Configure font families for bold, modern typography. Add custom animations for product card hover effects (scale and shadow transitions)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Render generated branding images as static assets from frontend/public/assets/generated",
+      "acceptanceCriteria": [
+        "Hero banner image is loaded from frontend/public/assets/generated/hero-banner.png",
+        "Default product placeholder image is loaded from frontend/public/assets/generated/product-placeholder.png"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProfileHero.tsx",
+          "operation": "modify",
+          "description": "Reference the generated hero banner image at frontend/public/assets/generated/hero-banner.dim_1200x400.png as the background image for the hero section using an img tag or CSS background-image."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Use the generated product placeholder image at frontend/public/assets/generated/product-placeholder.dim_400x400.png as the fallback when a product has no thumbnail URL or the thumbnail fails to load."
+        }
+      ]
+    }
+  ]
+}

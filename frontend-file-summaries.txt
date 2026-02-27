@@ -1,0 +1,15 @@
+{
+  "frontend/src/index.css": "Global styles with warm amber + charcoal OKLCH color system, Google Fonts import for Inter and Sora, and utility classes for product card hover animations and amber/charcoal color tokens.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Inter/Sora font families, amber/charcoal custom color tokens, product card shadow variants, and fade-in/scale-in keyframe animations.",
+  "frontend/src/hooks/useAuth.ts": "Convenience auth hook wrapping useInternetIdentity with login/logout handlers (including queryClient.clear() on logout) and helper state flags.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend operations — user profile (get caller, get by principal, save) and products (get, add, update, remove) with proper cache invalidation.",
+  "frontend/src/components/Header.tsx": "Sticky dark header with app logo/branding and a login/logout button that reflects authentication state with loading indicator.",
+  "frontend/src/components/ProfileSetupModal.tsx": "First-time profile setup modal (non-dismissable) that prompts authenticated users with no profile to enter display name, bio, social handle, and photo URL.",
+  "frontend/src/components/EditProfileModal.tsx": "Edit profile modal pre-populated with current profile data, allowing authenticated owners to update all profile fields.",
+  "frontend/src/components/ProfileHero.tsx": "Hero section with background banner image, circular avatar, display name, bio, social handle, and an edit button for authenticated owners.",
+  "frontend/src/components/AddProductModal.tsx": "Modal form for adding new Amazon product listings with title, description, price, thumbnail URL, and Amazon URL fields.",
+  "frontend/src/components/EditProductModal.tsx": "Modal form for editing existing product listings, pre-populated with current product data.",
+  "frontend/src/components/ProductCard.tsx": "Product card with thumbnail (fallback to placeholder), price badge, title, description, View on Amazon CTA button, and owner-only edit/delete actions on hover.",
+  "frontend/src/components/ProductGrid.tsx": "Responsive product grid with loading skeletons, empty state, and an Add Product button for authenticated owners.",
+  "frontend/src/App.tsx": "Root app component wiring together Header, ProfileHero, ProductGrid, ProfileSetupModal, and footer with authentication-aware rendering and caffeine.ai attribution."
+}
